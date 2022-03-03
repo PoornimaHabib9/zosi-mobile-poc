@@ -1,9 +1,11 @@
 import React from "react";
 import { Text } from "react-native";
+import {  Headline } from 'react-native-paper';
+
 
 const Home = ()=>{
     return(
-        <Text>Home</Text>
+        <Headline>Home Updated</Headline>
     )
 }
 export default Home;

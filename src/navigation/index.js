@@ -20,8 +20,8 @@ const Navigation = () => {
   return (
     <SafeAreaViewContainer>
       <NavigationContainer>
-        <AuthNavigator />
-        // <TabNavigator />
+        {/* <AuthNavigator /> */}
+        <TabNavigator />
       </NavigationContainer>
     </SafeAreaViewContainer>
   );

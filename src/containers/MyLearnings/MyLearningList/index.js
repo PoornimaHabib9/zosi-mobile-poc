@@ -1,30 +1,38 @@
 import React, { useContext } from 'react';
 import {
   SafeAreaViewContainer,
-  HeadingTitle,
-  SubHeading,
+  // HeadingTitle,
+  // SubHeading,
   ListContainer,
 } from './index.style';
 import CourseInfoCard from '../../../components/ProductCard/index';
-import { ActivityIndicator } from 'react-native-paper';
-import { View, TouchableOpacity, Text } from 'react-native';
+import { ActivityIndicator, Text, Headline, Subheading } from 'react-native-paper';
+import { View, TouchableOpacity } from 'react-native';
+import { getProducts } from '../../../api/test';
+import { response } from './apidata';
+
 
 const MyLearningList = ({ navigation }) => {
   //   const { courses, isLoading, error } = useContext(RestaurantContext);
-  const courses = [];
+  // const { data } = await getProducts();
+  const { data } = response;
+  const courses = data.rows;
   const isLoading = false;
   const error = 'No items found';
   return (
     <View style={{ flex: 1 }}>
       <SafeAreaViewContainer>
-        <HeadingTitle>My Learning</HeadingTitle>
-        <SubHeading>
+        <Headline style={{color: 'white'}}>My Learning</Headline>
+        <Subheading style={{color: 'white'}}>
           To play your course, select the Start button. To assign a course you
           have purchased to another user visit My Orders page
-        </SubHeading>
+        </Subheading >
         {isLoading && (
           <ActivityIndicator animating={true} size={'large'} color={'tomato'} />
         )}
+          <Headline>Headline</Headline>
+
+        <Text>{courses.length}</Text>
         {courses && courses.length > 0 && (
           <ListContainer
             data={courses}
