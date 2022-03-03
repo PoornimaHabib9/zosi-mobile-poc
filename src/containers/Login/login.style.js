@@ -29,7 +29,7 @@ export const LoginBox = styled(View)`
   padding: 20px;
 `;
 
-export const HyperLink = styled(Paragraph)`
+export const HyperLink = styled(Text)`
   color: rgba(13, 207, 218, 0.99);
 `;
 

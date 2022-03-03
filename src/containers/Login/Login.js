@@ -1,5 +1,5 @@
-import React from "react";
-import { SafeAreaView, Text, View, StatusBar } from "react-native";
+import React from 'react';
+import { SafeAreaView, Text, View, StatusBar } from 'react-native';
 import {
   Button,
   Caption,
@@ -8,8 +8,8 @@ import {
   Headline,
   TextInput,
   Title,
-} from "react-native-paper";
-import { useForm, Controller } from "react-hook-form";
+} from 'react-native-paper';
+import { useForm, Controller } from 'react-hook-form';
 import {
   SafeAreaViewContainer,
   LoginBackground,
@@ -17,7 +17,7 @@ import {
   LoginCard,
   HyperLink,
   SignupSuggestBox,
-} from "./login.style";
+} from './login.style';
 
 const getTextFieldValidation = {
   email: { required: `Email is required` },
@@ -25,24 +25,24 @@ const getTextFieldValidation = {
 };
 
 const initialFormValues = {
-  email: "",
-  password: "",
+  email: '',
+  password: '',
 };
 
-const Login = ({navigation}) => {
+const Login = ({ navigation }) => {
   const {
     control,
     handleSubmit,
     formState: { errors, isValid },
   } = useForm({
-    mode: "onBlur",
-    reValidateMode: "onBlur",
+    mode: 'onBlur',
+    reValidateMode: 'onBlur',
     defaultValues: initialFormValues,
   });
 
   const onSubmit = (data) => {
-    console.log(data)
-    navigation.navigate("My Learnings")
+    console.log(data);
+    navigation.navigate('My Learnings');
   };
 
   const RenderTextField = ({ fieldName, label, validation, icon }) => (
@@ -53,8 +53,8 @@ const Login = ({navigation}) => {
         rules={{
           required: {
             value: true,
-            message: 'Field is required!'
-          }
+            message: 'Field is required!',
+          },
         }}
         render={({ field: { name, onChange, onBlur, value } }) => (
           <TextInput
@@ -79,28 +79,37 @@ const Login = ({navigation}) => {
       <LoginBackground>
         <LoginCard elevation={5}>
           <LoginBox>
-            <Title style={{textAlign:'center'}}>Welcome</Title>
-            <Caption style={{textAlign:'center'}}>Login in to Alchemy to continue</Caption>
+            <Title style={{ textAlign: 'center' }}>Welcome</Title>
+            <Caption style={{ textAlign: 'center' }}>
+              Login in to Alchemy to continue
+            </Caption>
             <View>
               <RenderTextField
-                fieldName={"email"}
-                label={"Email Address"}
-                icon={"email"}
+                fieldName={'email'}
+                label={'Email Address'}
+                icon={'email'}
                 validation={getTextFieldValidation.email}
               />
               <RenderTextField
-                fieldName={"password"}
-                label={"Password"}
-                icon={"lock-outline"}
+                fieldName={'password'}
+                label={'Password'}
+                icon={'lock-outline'}
                 validation={getTextFieldValidation.password}
               />
-              <HyperLink style={{marginTop:10,marginBottom:15}}>Forgot your Password?</HyperLink>
-              <Button mode="contained" disabled={!isValid} onPress={handleSubmit(onSubmit)}>Continue</Button>
+              <HyperLink style={{ marginTop: 10, marginBottom: 15 }}>
+                Forgot your Password?
+              </HyperLink>
+              <Button
+                mode="contained"
+                disabled={!isValid}
+                onPress={handleSubmit(onSubmit)}>
+                Continue
+              </Button>
             </View>
           </LoginBox>
           <SignupSuggestBox>
-            <Text>Don't have an account?</Text>
-            <HyperLink style={{marginLeft:5}}>Sign Up</HyperLink>
+            <Text> do not have an account?</Text>
+            <HyperLink style={{ marginLeft: 5 }}>Sign Up</HyperLink>
           </SignupSuggestBox>
         </LoginCard>
       </LoginBackground>

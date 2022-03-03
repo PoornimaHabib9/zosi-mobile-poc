@@ -1,14 +1,7 @@
 import React from "react";
 import { Image, View } from "react-native";
-import styled from "styled-components/native";
 import { MaterialIcons, Feather } from "@expo/vector-icons";
 import { Card } from "react-native-paper";
-
-// const HeaderRow = styled(Card)`
-//   flex-direction: row;
-//   align-items: center;
-//   justify-content: space-between;
-// `;
 
 const HeaderContainer = () => {
   return (

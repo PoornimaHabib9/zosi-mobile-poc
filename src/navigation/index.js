@@ -1,15 +1,15 @@
-import React from "react";
-import TabNavigator from "./tab.navigator";
-import AuthNavigator from "./auth.navigator";
-import { NavigationContainer } from "@react-navigation/native";
-import Auth0 from "react-native-auth0";
-import { Text, View, StatusBar } from "react-native";
-import styled from "styled-components/native";
-import { SafeAreaView } from "react-native";
+import React from 'react';
+import TabNavigator from './tab.navigator';
+import AuthNavigator from './auth.navigator';
+import { NavigationContainer } from '@react-navigation/native';
+import Auth0 from 'react-native-auth0';
+import { Text, View, StatusBar } from 'react-native';
+import styled from 'styled-components/native';
+import { SafeAreaView } from 'react-native';
 
 const auth0 = new Auth0({
-  domain: "zosi-poornima.us.auth0.com",
-  clientId: "q2b7hpsfc8CFSp6AjpIU12QCokvU10a7",
+  domain: 'zosi-poornima.us.auth0.com',
+  clientId: 'q2b7hpsfc8CFSp6AjpIU12QCokvU10a7',
 });
 
 const SafeAreaViewContainer = styled(SafeAreaView)`
@@ -20,7 +20,8 @@ const Navigation = () => {
   return (
     <SafeAreaViewContainer>
       <NavigationContainer>
-        <TabNavigator />
+        <AuthNavigator />
+        // <TabNavigator />
       </NavigationContainer>
     </SafeAreaViewContainer>
   );

@@ -10,7 +10,7 @@ import {
   ProductTitle,
   StatusButton
 } from "./index.style";
-import moment from moment
+import moment from 'moment'
 import { DATE_SHORT_FORMAT } from '../../constants/appConstants';
 
 const CourseInfoCard = ({ product = {} }) => {
@@ -20,7 +20,6 @@ const CourseInfoCard = ({ product = {} }) => {
     Course_name = "PCQI Blended eLearning Course",
     courseStatus = "Start",
     CourseSeat_expiration_date = "07/25/2021",
-    isExpired = false,
     CourseSeat_subscription_id=1,
     Course_id=1
 
