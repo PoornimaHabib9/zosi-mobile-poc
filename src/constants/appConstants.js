@@ -1,0 +1,50 @@
+const DATE_SHORT_FORMAT = 'MM/DD/YYYY';
+const DATE_FORMAT_WITH_TIMESTAMP = 'MM/DD/YYYY, h:mm A';
+const DATE_FORMAT_WITH_DAY = 'dddd, MM/DD/YYYY';
+const ISO_DATE_FORMAT = 'YYYY-MM-DDTHH:mm:ss.SSS[Z]';
+const USER_METADATA_NAMESPACE = 'https://zosilearning.com/user_metadata';
+const SESSION_TIMEOUT_TIME = 15;
+const SESSION_WARNING_TIME_SECONDS = 60;
+const SESSION_VARIABLE = 'USER';
+const SESSION_VARIABLE_USER_ACTION = 'SESSION_VARIABLE_USER_ACTION';
+const SESSION_TIMEOUT = 'SESSION_TIMEOUT';
+const ADMIN_ROLE = 'cms-admin';
+const CMS_READ_ONLY_ADMIN = 'cms-read-only';
+const ACCOUNT_OWNER_ROLE = 'client-account-owner';
+const CLIENT_ROLE = 'client-user';
+const CLIENT_ID = 'CLIENT_ID';
+const CLIENT_NAME = 'CLIENT_NAME';
+const PREFERRED_LANG = 'PREFERRED_LANG';
+const IS_PROFILE_FULFILLED = 'IS_PROFILE_FULFILLED';
+const EMAIL_VALIDATION_REGX = /^[a-zA-Z0-9\-+_]+(\.[a-zA-Z0-9\-+_]+)*@[a-z0-9]+(-[a-z0-9]+)*(\.[a-z0-9]+(-[a-z0-9]+)*)*\.[a-z]{2,4}$/;
+const AS_USER_ID = 'as_user_id';
+const AS_USER_NAME = 'as_user_name';
+const AS_USER_SESSION = 'as_user_session';
+const COUNTRY_LIST = ['us', 'gb', 'mx', 'br', 'fr', 'ca', 'de', 'es'];
+const AS_USER_PATH_NAME = 'as_user_path_name';
+export {
+  DATE_SHORT_FORMAT,
+  ISO_DATE_FORMAT,
+  USER_METADATA_NAMESPACE,
+  SESSION_TIMEOUT_TIME,
+  SESSION_WARNING_TIME_SECONDS,
+  SESSION_VARIABLE,
+  SESSION_VARIABLE_USER_ACTION,
+  SESSION_TIMEOUT,
+  ADMIN_ROLE,
+  CMS_READ_ONLY_ADMIN,
+  ACCOUNT_OWNER_ROLE,
+  CLIENT_ROLE,
+  CLIENT_ID,
+  PREFERRED_LANG,
+  CLIENT_NAME,
+  IS_PROFILE_FULFILLED,
+  EMAIL_VALIDATION_REGX,
+  AS_USER_ID,
+  AS_USER_NAME,
+  AS_USER_SESSION,
+  DATE_FORMAT_WITH_TIMESTAMP,
+  DATE_FORMAT_WITH_DAY,
+  COUNTRY_LIST,
+  AS_USER_PATH_NAME,
+};
