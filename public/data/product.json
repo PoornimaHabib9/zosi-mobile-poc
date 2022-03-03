@@ -1,0 +1,81 @@
+{
+	"data": {
+		"IS_OWNER": true,
+		"subscription": {
+			"id": 738,
+			"quantity": 3,
+			"expiration_date": "2022-02-22T11:49:36.000Z",
+			"Order": {
+				"id": 744,
+				"zuora_order_number": "63832",
+				"user_id": "auth0|611f6ec5da80120069a3c5b3"
+			},
+			"Course": {
+				"id": 1346,
+				"course_id": "all_1",
+				"name": "all_1",
+				"default_language_id": 1,
+				"CourseLanguage": [
+					{
+						"id": 1573,
+						"description": null,
+						"Language": {
+							"id": 1,
+							"name": "US - English",
+							"code": "EN-US"
+						}
+					},
+					{
+						"id": 1574,
+						"description": "",
+						"Language": {
+							"id": 3,
+							"name": "US - Spanish",
+							"code": "ES-US"
+						}
+					},
+					{
+						"id": 1575,
+						"description": "",
+						"Language": {
+							"id": 8,
+							"name": "CA - French",
+							"code": "FR-CA"
+						}
+					}
+				],
+				"defaultLanguage": {
+					"id": 1573,
+					"description": null,
+					"Language": {
+						"id": 1,
+						"name": "US - English",
+						"code": "EN-US"
+					}
+				}
+			}
+		},
+		"enrollments": 2,
+		"CourseSeat": {
+			"id": 4482,
+			"subscription_id": 738,
+			"learner_id": "auth0|611f6ec5da80120069a3c5b3",
+			"expiration_date": "2022-02-22T11:49:36.000Z",
+			"Transcript": {
+				"id": 252,
+				"player_session_id": "adba21ab-2275-4d79-a2ec-c4635bee7aac",
+				"status_id": 0,
+				"progress": 0,
+				"Certificate": null,
+				"CourseLanguage": {
+					"id": 1573,
+					"Language": {
+						"id": 1,
+						"name": "US - English",
+						"code": "EN-US"
+					}
+				}
+			}
+		}
+	}
+}

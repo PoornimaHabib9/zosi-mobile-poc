@@ -21,24 +21,24 @@ export const ListContainer = styled(FlatList).attrs({
   margin-bottom: 15%;
 `;
 
-export const HeadingTitle = styled(Text)`
-  font-family: NeoSansStd;
-  font-size: 20px;
-  font-weight: normal;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: 1.2;
-  letter-spacing: 0.15px;
-  color: rgba(255, 255, 255, 0.87);
-`;
+// export const HeadingTitle = styled(Text)`
+//   font-family: NeoSansStd;
+//   font-size: 20px;
+//   font-weight: normal;
+//   font-stretch: normal;
+//   font-style: normal;
+//   line-height: 1.2;
+//   letter-spacing: 0.15px;
+//   color: rgba(255, 255, 255, 0.87);
+// `;
 
-export const SubHeading = styled(Text)`
-  font-family: NeoSansStd;
-  font-size: 14px;
-  font-weight: normal;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: 1.43;
-  letter-spacing: 0.25px;
-  color: rgba(255, 255, 255, 0.6);
-`;
+// export const SubHeading = styled(Text)`
+//   font-family: NeoSansStd;
+//   font-size: 14px;
+//   font-weight: normal;
+//   font-stretch: normal;
+//   font-style: normal;
+//   line-height: 1.43;
+//   letter-spacing: 0.25px;
+//   color: rgba(255, 255, 255, 0.6);
+// `;
