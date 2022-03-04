@@ -27,7 +27,7 @@ const HomeNavigator = () => {
           headerTitle: "",
           headerLeft: () => (
             <Image
-              source={require("../../public/assets/logos/zosiLogoBlack.png")}
+              source={require("../../public/assets/logos/zosi_logo.png")}
             />
           ),
           headerRight: () => (

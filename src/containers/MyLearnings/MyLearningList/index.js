@@ -30,9 +30,6 @@ const MyLearningList = ({ navigation }) => {
         {isLoading && (
           <ActivityIndicator animating={true} size={'large'} color={'tomato'} />
         )}
-          <Headline>Headline</Headline>
-
-        <Text>{courses.length}</Text>
         {courses && courses.length > 0 && (
           <ListContainer
             data={courses}

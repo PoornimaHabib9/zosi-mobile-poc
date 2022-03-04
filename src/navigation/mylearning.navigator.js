@@ -1,4 +1,5 @@
 import React from "react";
+import { Image, View } from "react-native";
 import {
   createStackNavigator,
   TransitionPresets,
@@ -16,21 +17,48 @@ const MyLearningNavigator = () => {
         name="My Learnings"
         component={MyLearningList}
         options={{
-          headerTitle: (props) => <HeaderContainer {...props} />,
           headerStyle: {
-            backgroundColor: "#121212",
+            backgroundColor: "#252525",
+            shadowColor: "rgba(0, 0, 0, 0.2)",
+            shadowOpacity: 3,
+            shadowOffset: 3,
           },
+          headerTitle: "",
+          headerLeft: () => (
+            <Image
+              source={require("../../public/assets/logos/zosi_logo.png")}
+            />
+          ),
+          headerRight: () => (
+            <View style={{ flexDirection: "row", alignItems: "center" }}>
+              <Image source={require("../../public/assets/icons/search.png")} />
+              <Image source={require("../../public/assets/icons/cart.png")} />
+            </View>
+          ),
         }}
       ></MyLearningStack.Screen>
       <MyLearningStack.Screen
         name="My Learning View"
         component={MyLearningView}
         options={{
-          headerTitle: (props) => <HeaderContainer {...props} />,
           headerStyle: {
-            backgroundColor: "#121212",
+            backgroundColor: "#252525",
+            shadowColor: "rgba(0, 0, 0, 0.2)",
+            shadowOpacity: 3,
+            shadowOffset: 3,
           },
-          
+          headerTitle: "",
+          headerLeft: () => (
+            <Image
+              source={require("../../public/assets/logos/zosi_logo.png")}
+            />
+          ),
+          headerRight: () => (
+            <View style={{ flexDirection: "row", alignItems: "center" }}>
+              <Image source={require("../../public/assets/icons/search.png")} />
+              <Image source={require("../../public/assets/icons/cart.png")} />
+            </View>
+          ),
         }}
       ></MyLearningStack.Screen>
     </MyLearningStack.Navigator>
