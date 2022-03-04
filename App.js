@@ -2,29 +2,29 @@ import React from "react";
 import { Provider as PaperProvider } from "react-native-paper";
 import { darkTheme } from "./src/themes/theme";
 import Navigation from "./src/navigation";
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import { QueryClient, QueryClientProvider, setLogger } from 'react-query';
+import { NavigationContainer } from '@react-navigation/native';
 
-const queryClient = new QueryClient({
-  defaultOptions: {
-    queries: {
-      refetchOnWindowFocus: false,
-      suspense: true,
-      retry: false,
-    },
-    mutations: {
-      useErrorBoundary: false,
-      suspense: false,
-    },
-  },
-});
+import { Provider as AuthProvider } from './src/services/AuthContext';
 
-export default function App() {
+const App = () => {
+  
+  
+
+
+
+  // console.log('TOKEN', state.userToken);
   return (
-    <QueryClientProvider client={queryClient}>
+    <AuthProvider>
       <PaperProvider theme={darkTheme}>
+      {/* <NavigationContainer> */}
         <Navigation />
+      {/* </NavigationContainer> */}
       </PaperProvider>
-    </QueryClientProvider>
+    </AuthProvider>
   );
-}
+};
+
+export default App;

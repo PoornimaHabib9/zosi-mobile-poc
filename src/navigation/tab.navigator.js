@@ -55,10 +55,11 @@ const createScreenOptions = ({ route }) => {
 };
 
 const TabNavigator = () => {
+  console.log('Executing tab Navigator')
   return (
     <Tab.Navigator
       screenOptions={createScreenOptions}
-      initialRouteName={MyLearningNavigator}
+      initialRouteName='MyLearning'
     >
       <Tab.Screen name="Home" component={HomeNavigator} />
       <Tab.Screen name="MyLearning" component={MyLearningNavigator} />

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { SafeAreaView, Text, View, StatusBar } from 'react-native';
 import {
 	Button,
@@ -20,6 +20,8 @@ import {
 } from './login.style';
 
 import Auth0 from 'react-native-auth0';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { Context as AuthContext } from '../../services/AuthContext';
 
 const auth0 = new Auth0({
 	domain: 'zosi-neeraj.us.auth0.com',
@@ -47,16 +49,24 @@ const Login = ({ navigation }) => {
 		defaultValues: initialFormValues,
 	});
 
+	const { signin } = React.useContext(AuthContext);
+
+	useEffect(()=> {
+		
+	}, [])
+
 	const onSubmit = async (data) => {
-		console.log(data);
+		// console.log(data);
 		// await auth0.webAuth
 		// 	.authorize({ scope: 'openid email profile' })
 		// 	.then((credentials) => console.log(credentials))
 		// 	.catch((error) => console.log(error));
-		navigation.navigate('Root', { screen: 'MyLearnings' });
+		signin(data)
+		// await AsyncStorage.setItem("auth", "something");
+		// navigation.navigate('Root', { screen: 'MyLearning' });
 	};
 
-	const RenderTextField = ({ fieldName, label, validation, icon }) => (
+	const RenderTextField = ({ fieldName, label, validation, icon, type }) => (
 		<View>
 			<Controller
 				name={fieldName}
@@ -77,7 +87,8 @@ const Login = ({ navigation }) => {
 						label={label}
 						mode='outlined'
 						error={errors[name]}
-						left={<TextInput.Icon name={icon} secureTextEntry />}
+						left={<TextInput.Icon name={icon}  />}
+						secureTextEntry={type === 'password'}
 					/>
 				)}
 			/>
@@ -100,12 +111,14 @@ const Login = ({ navigation }) => {
 								label={'Email Address'}
 								icon={'email'}
 								validation={getTextFieldValidation.email}
+								type='email'
 							/>
 							<RenderTextField
 								fieldName={'password'}
 								label={'Password'}
 								icon={'lock-outline'}
 								validation={getTextFieldValidation.password}
+								type='password'
 							/>
 							{/* <TextInput
 							style={{backgroundColor: 'white'}}
