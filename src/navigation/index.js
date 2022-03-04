@@ -7,10 +7,10 @@ import { Text, View, StatusBar } from 'react-native';
 import styled from 'styled-components/native';
 import { SafeAreaView } from 'react-native';
 
-const auth0 = new Auth0({
-  domain: 'zosi-poornima.us.auth0.com',
-  clientId: 'q2b7hpsfc8CFSp6AjpIU12QCokvU10a7',
-});
+// const auth0 = new Auth0({
+//   domain: 'zosi-neeraj.us.auth0.com',
+//   clientId: 'Zd21bBpnMl7SKBK3EUV5R47vnlZ2PDpU',
+// });
 
 const SafeAreaViewContainer = styled(SafeAreaView)`
   flex: auto;
@@ -20,8 +20,9 @@ const Navigation = () => {
   return (
     <SafeAreaViewContainer>
       <NavigationContainer>
-        {/* <AuthNavigator /> */}
-        <TabNavigator />
+        <AuthNavigator />
+        {/* <TabNavigator /> */}
+        
       </NavigationContainer>
     </SafeAreaViewContainer>
   );
