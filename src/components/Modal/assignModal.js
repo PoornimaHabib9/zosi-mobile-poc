@@ -8,8 +8,8 @@ import {
 } from "react-native-paper";
 import {StyleSheet} from 'react-native'
 
-const AssignModal = ({visible}) => {
-  const [visible, setVisible] = React.useState(visible);
+const AssignModal = ({visibleProp}) => {
+  const [visible, setVisible] = React.useState(visibleProp);
 
   // const showModal = () => setVisible(true);
   const hideModal = () => setVisible(false);

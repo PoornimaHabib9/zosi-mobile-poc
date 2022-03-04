@@ -1,14 +1,21 @@
 import React from "react";
 import { createStackNavigator, TransitionPresets } from "@react-navigation/stack";
 import Login from "../containers/Login/Login";
+import MyLearningNavigator from "./mylearning.navigator";
 
-const AuthStack = createStackNavigator();
+const Stack = createStackNavigator();
 
 const AuthNavigator=()=>{
+    console.log('Executing AuthNavigator')
     return(
-        <AuthStack.Navigator screenOptions={{ headerShown: false }}>
-            <AuthStack.Screen name="Login" component={Login}></AuthStack.Screen>
-        </AuthStack.Navigator>
+        <Stack.Navigator>
+        <Stack.Screen name="LogIn" component={Login} options={{headerShown:false}}/>
+        {/* <Stack.Screen
+            name="Root"
+            component={MyLearningNavigator}
+            options={{ headerShown: true }}
+            /> */}
+      </Stack.Navigator>
     )
 }
 export default AuthNavigator;

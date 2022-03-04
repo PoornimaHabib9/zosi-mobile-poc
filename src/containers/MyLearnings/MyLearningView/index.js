@@ -39,7 +39,7 @@ const MyLearningView = ({ route, navigation }) => {
                         mode='outlined'
                         style={styles.courseActionElement}
                         uppercase={false}
-                        onPress={() => <AssignModal visible={true}/>}
+                        onPress={() => <AssignModal visibleProp={true}/>}
                     > Assign</Button>
                 </View>
             </View>
@@ -114,7 +114,7 @@ const styles = StyleSheet.create({
         padding:20
     },
     courseActionElement: {
-        marginTop: 10,
+        marginTop: 15,
     }
 
 })

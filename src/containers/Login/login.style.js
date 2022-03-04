@@ -3,7 +3,6 @@ import { Caption, Card, Paragraph } from "react-native-paper";
 import { SafeAreaView, View, StatusBar, Text } from "react-native";
 
 export const LoginBackground = styled.View`
-  /* flex: auto; */
   background-color: #121212;
   position: absolute;
   left: 0;

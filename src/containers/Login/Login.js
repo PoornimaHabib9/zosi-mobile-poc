@@ -1,119 +1,161 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { SafeAreaView, Text, View, StatusBar } from 'react-native';
 import {
-  Button,
-  Caption,
-  Card,
-  Divider,
-  Headline,
-  TextInput,
-  Title,
+	Button,
+	Caption,
+	Card,
+	Divider,
+	Headline,
+	TextInput,
+	Title,
 } from 'react-native-paper';
 import { useForm, Controller } from 'react-hook-form';
 import {
-  SafeAreaViewContainer,
-  LoginBackground,
-  LoginBox,
-  LoginCard,
-  HyperLink,
-  SignupSuggestBox,
+	SafeAreaViewContainer,
+	LoginBackground,
+	LoginBox,
+	LoginCard,
+	HyperLink,
+	SignupSuggestBox,
 } from './login.style';
 
+import Auth0 from 'react-native-auth0';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { Context as AuthContext } from '../../services/AuthContext';
+
+const auth0 = new Auth0({
+	domain: 'zosi-neeraj.us.auth0.com',
+	clientId: 'Zd21bBpnMl7SKBK3EUV5R47vnlZ2PDpU',
+});
+
 const getTextFieldValidation = {
-  email: { required: `Email is required` },
-  password: { required: `Password is required` },
+	email: { required: `Email is required` },
+	password: { required: `Password is required` },
 };
 
 const initialFormValues = {
-  email: '',
-  password: '',
+	email: '',
+	password: '',
 };
 
 const Login = ({ navigation }) => {
-  const {
-    control,
-    handleSubmit,
-    formState: { errors, isValid },
-  } = useForm({
-    mode: 'onBlur',
-    reValidateMode: 'onBlur',
-    defaultValues: initialFormValues,
-  });
+	const {
+		control,
+		handleSubmit,
+		formState: { errors, isValid },
+	} = useForm({
+		mode: 'onBlur',
+		reValidateMode: 'onBlur',
+		defaultValues: initialFormValues,
+	});
 
-  const onSubmit = (data) => {
-    console.log(data);
-    navigation.navigate('My Learnings');
-  };
+	const { signin } = React.useContext(AuthContext);
 
-  const RenderTextField = ({ fieldName, label, validation, icon }) => (
-    <View>
-      <Controller
-        name={fieldName}
-        control={control}
-        rules={{
-          required: {
-            value: true,
-            message: 'Field is required!',
-          },
-        }}
-        render={({ field: { name, onChange, onBlur, value } }) => (
-          <TextInput
-            value={value}
-            name={name}
-            id={`${name}-input`}
-            onBlur={onBlur}
-            onChangeText={onChange}
-            label={label}
-            mode="outlined"
-            error={errors[name]}
-            left={<TextInput.Icon name={icon} />}
-          />
-        )}
-      />
-      {errors[fieldName] && <Text>{errors[fieldName]?.message}</Text>}
-    </View>
-  );
+	useEffect(()=> {
+		
+	}, [])
 
-  return (
-    <SafeAreaViewContainer>
-      <LoginBackground>
-        <LoginCard elevation={5}>
-          <LoginBox>
-            <Title style={{ textAlign: 'center' }}>Welcome</Title>
-            <Caption style={{ textAlign: 'center' }}>
-              Login in to Alchemy to continue
-            </Caption>
-            <View>
-              <RenderTextField
-                fieldName={'email'}
-                label={'Email Address'}
-                icon={'email'}
-                validation={getTextFieldValidation.email}
-              />
-              <RenderTextField
-                fieldName={'password'}
-                label={'Password'}
-                icon={'lock-outline'}
-                validation={getTextFieldValidation.password}
-              />
-              <HyperLink style={{ marginTop: 10, marginBottom: 15 }}>
-                Forgot your Password?
-              </HyperLink>
-              <Button
-                mode="contained"
-                disabled={!isValid}
-                onPress={handleSubmit(onSubmit)}>
-                Continue
-              </Button>
-            </View>
-          </LoginBox>
-          <SignupSuggestBox>
-            <Text> do not have an account?</Text>
-            <HyperLink style={{ marginLeft: 5 }}>Sign Up</HyperLink>
-          </SignupSuggestBox>
-        </LoginCard>
-      </LoginBackground>
-    </SafeAreaViewContainer>
-  );
+	const onSubmit = async (data) => {
+		// console.log(data);
+		// await auth0.webAuth
+		// 	.authorize({ scope: 'openid email profile' })
+		// 	.then((credentials) => console.log(credentials))
+		// 	.catch((error) => console.log(error));
+		signin(data)
+		// await AsyncStorage.setItem("auth", "something");
+		// navigation.navigate('Root', { screen: 'MyLearning' });
+	};
+
+	const RenderTextField = ({ fieldName, label, validation, icon, type }) => (
+		<View>
+			<Controller
+				name={fieldName}
+				control={control}
+				rules={{
+					required: {
+						value: true,
+						message: 'Field is required!',
+					},
+				}}
+				render={({ field: { name, onChange, onBlur, value } }) => (
+					<TextInput
+						value={value}
+						name={name}
+						id={`${name}-input`}
+						onBlur={onBlur}
+						onChangeText={onChange}
+						label={label}
+						mode='outlined'
+						error={errors[name]}
+						left={<TextInput.Icon name={icon}  />}
+						secureTextEntry={type === 'password'}
+					/>
+				)}
+			/>
+			{errors[fieldName] && <Text>{errors[fieldName]?.message}</Text>}
+		</View>
+	);
+
+	return (
+		<SafeAreaViewContainer>
+			<LoginBackground>
+				<LoginCard elevation={5}>
+					<LoginBox>
+						<Title style={{ textAlign: 'center' }}>Welcome</Title>
+						<Caption style={{ textAlign: 'center' }}>
+							Login in to Alchemy to continue
+						</Caption>
+						<View>
+							<RenderTextField
+								fieldName={'email'}
+								label={'Email Address'}
+								icon={'email'}
+								validation={getTextFieldValidation.email}
+								type='email'
+							/>
+							<RenderTextField
+								fieldName={'password'}
+								label={'Password'}
+								icon={'lock-outline'}
+								validation={getTextFieldValidation.password}
+								type='password'
+							/>
+							{/* <TextInput
+							style={{backgroundColor: 'white'}}
+								label='Email Address'
+								name="email"
+								left={<TextInput.Icon name='email'
+								// mode='f'
+								/>}
+							/>
+							<TextInput
+							style={{backgroundColor: 'white'}}
+								name="password"
+								label='Password'
+								secureTextEntry
+								right={<TextInput.Icon name='eye'
+								// mode='outlined'
+								/>}
+							/> */}
+							<HyperLink style={{ marginTop: 10, marginBottom: 15 }}>
+								Forgot your Password?
+							</HyperLink>
+							<Button
+								mode='contained'
+								disabled={!isValid}
+								onPress={handleSubmit(onSubmit)}
+							>
+								Continue
+							</Button>
+						</View>
+					</LoginBox>
+					<SignupSuggestBox>
+						<Text> do not have an account?</Text>
+						<HyperLink style={{ marginLeft: 5 }}>Sign Up</HyperLink>
+					</SignupSuggestBox>
+				</LoginCard>
+			</LoginBackground>
+		</SafeAreaViewContainer>
+	);
 };
 export default Login;

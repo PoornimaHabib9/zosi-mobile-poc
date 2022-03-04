@@ -39,11 +39,11 @@ const MyLearningList = ({ navigation }) => {
                   onPress={() => navigation.navigate('My Learning View',{
                     product: item,
                   })}>
-                  <CourseInfoCard course={item} key={index}  />
+                  <CourseInfoCard course={item} />
                 </TouchableOpacity>
               );
             }}
-            keyExtractor={(item) => item.id}
+            keyExtractor={(item) => item.CourseSeat_id + ""}
           />
         )}
         {error && <Text variant="error">{error}</Text>}
