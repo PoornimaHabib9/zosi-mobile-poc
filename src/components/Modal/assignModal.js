@@ -6,11 +6,12 @@ import {
   TextInput,
   Dialog,
 } from "react-native-paper";
+import {StyleSheet} from 'react-native'
 
-const AssignModal = () => {
-  const [visible, setVisible] = React.useState(false);
+const AssignModal = ({visible}) => {
+  const [visible, setVisible] = React.useState(visible);
 
-  const showModal = () => setVisible(true);
+  // const showModal = () => setVisible(true);
   const hideModal = () => setVisible(false);
   const [text, setText] = React.useState("");
 
@@ -23,7 +24,7 @@ const AssignModal = () => {
           onDismiss={hideModal}
           contentContainerStyle={containerStyle}
         >
-          <Dialog.Title>Assign Enrollment</Dialog.Title>
+          <Dialog.Title style={styles.modalTitle}>Assign Enrollment</Dialog.Title>
           <Dialog.Content>
             <TextInput
               label="Email"
@@ -33,7 +34,7 @@ const AssignModal = () => {
           </Dialog.Content>
           <Dialog.Actions>
             <Dialog.Actions>
-              <Button mode="outlined" onPress={() => console.log("Cancel")}>
+              <Button mode="outlined" onPress={() => hideModal()}>
                 Cancel
               </Button>
               <Button onPress={() => console.log("Ok")}>Assign</Button>
@@ -44,5 +45,12 @@ const AssignModal = () => {
     </Provider>
   );
 };
+
+const styles=StyleSheet.create({
+  modalTitle:{
+    color:'rgba(255,255,255,0.87)',
+    fontSize:20
+  }
+})
 
 export default AssignModal;

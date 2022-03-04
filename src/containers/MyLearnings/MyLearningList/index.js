@@ -36,8 +36,10 @@ const MyLearningList = ({ navigation }) => {
             renderItem={({ item, index }) => {
               return (
                 <TouchableOpacity
-                  onPress={() => navigation.navigate('My Learning View')}>
-                  <CourseInfoCard course={item} key={index} />
+                  onPress={() => navigation.navigate('My Learning View',{
+                    product: item,
+                  })}>
+                  <CourseInfoCard course={item} key={index}  />
                 </TouchableOpacity>
               );
             }}

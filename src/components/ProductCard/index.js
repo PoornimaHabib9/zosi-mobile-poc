@@ -5,6 +5,7 @@ import {
   Text,
   StyleSheet,
 } from "react-native";
+import { Link } from '@react-navigation/native';
 import moment from 'moment'
 import { DATE_SHORT_FORMAT } from '../../constants/appConstants';
 import { Card, Subheading, Button } from "react-native-paper";
