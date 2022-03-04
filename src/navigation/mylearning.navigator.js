@@ -1,5 +1,5 @@
-import React from "react";
-import { Image, View } from "react-native";
+import React, {useContext} from "react";
+import { Image, View, TouchableOpacity } from "react-native";
 import {
   createStackNavigator,
   TransitionPresets,
@@ -7,10 +7,11 @@ import {
 import MyLearningList from "../containers/MyLearnings/MyLearningList";
 import MyLearningView from "../containers/MyLearnings/MyLearningView";
 import HeaderContainer from "../components/Header/index";
-
+import { Context as AuthContext } from '../services/AuthContext';
 const MyLearningStack = createStackNavigator();
 
 const MyLearningNavigator = () => {
+  const { state, signout } = useContext(AuthContext);
   return (
     <MyLearningStack.Navigator>
       <MyLearningStack.Screen
@@ -33,6 +34,9 @@ const MyLearningNavigator = () => {
             <View style={{ flexDirection: "row", alignItems: "center" }}>
               <Image source={require("../../public/assets/icons/search.png")} />
               <Image source={require("../../public/assets/icons/cart.png")} />
+              <TouchableOpacity onPress={signout}>
+                <Image source={require("../../public/assets/icons/logout.png")} />
+              </TouchableOpacity>
             </View>
           ),
         }}
@@ -57,6 +61,9 @@ const MyLearningNavigator = () => {
             <View style={{ flexDirection: "row", alignItems: "center" }}>
               <Image source={require("../../public/assets/icons/search.png")} />
               <Image source={require("../../public/assets/icons/cart.png")} />
+              <TouchableOpacity onPress={signout}>
+                <Image source={require("../../public/assets/icons/logout.png")} />
+              </TouchableOpacity>
             </View>
           ),
         }}
