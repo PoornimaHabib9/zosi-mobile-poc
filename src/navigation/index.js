@@ -2,20 +2,12 @@ import React, {useContext} from 'react';
 import TabNavigator from './tab.navigator';
 import AuthNavigator from './auth.navigator';
 import { NavigationContainer } from '@react-navigation/native';
-import Auth0 from 'react-native-auth0';
-import { Text, View, StatusBar } from 'react-native';
+import { StatusBar } from 'react-native';
 import styled from 'styled-components/native';
 import { SafeAreaView } from 'react-native';
-// import Login from '../containers/Login/Login';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-// import MyLearningNavigator from './mylearning.navigator';
 import { Context as AuthContext } from '../services/AuthContext';
 import { navigationRef } from '../navigationRef';
-
-// const auth0 = new Auth0({
-//   domain: 'zosi-neeraj.us.auth0.com',
-//   clientId: 'Zd21bBpnMl7SKBK3EUV5R47vnlZ2PDpU',
-// });
 
 const SafeAreaViewContainer = styled(SafeAreaView)`
   flex: auto;
@@ -30,24 +22,11 @@ const Navigation = () => {
   return (
     <SafeAreaViewContainer>
       <NavigationContainer ref={navigationRef}>
-        {/* {isAuth ? <TabNavigator />:<AuthNavigator/>} */}
-        <TabNavigator />
-        {/* <Stack.Navigator>
-          <Stack.Screen name="LogIn" component={Login} />
-          <Stack.Screen name="MyLearning" component={MyLearningNavigator} />
-        </Stack.Navigator> */}
+        {isAuth ? <TabNavigator />:<AuthNavigator/>}
       </NavigationContainer>
     </SafeAreaViewContainer>
   );
 };
-
-// const Navigation = () => {
-//   return (
-//     <NavigationContainer>
-//       <TabNavigator />
-//     </NavigationContainer>
-//   );
-// };
 
 export default Navigation;
 
