@@ -1,20 +1,15 @@
 import React, { useContext } from 'react';
 import {
   SafeAreaViewContainer,
-  // HeadingTitle,
-  // SubHeading,
   ListContainer,
 } from './index.style';
 import CourseInfoCard from '../../../components/ProductCard/index';
 import { ActivityIndicator, Text, Headline, Subheading } from 'react-native-paper';
-import { View, TouchableOpacity } from 'react-native';
-import { getProducts } from '../../../api/test';
+import { View, TouchableOpacity, StyleSheet } from 'react-native';
 import { response } from './apidata';
 
 
 const MyLearningList = ({ navigation }) => {
-  //   const { courses, isLoading, error } = useContext(RestaurantContext);
-  // const { data } = await getProducts();
   const { data } = response;
   const courses = data.rows;
   const isLoading = false;
@@ -22,8 +17,8 @@ const MyLearningList = ({ navigation }) => {
   return (
     <View style={{ flex: 1 }}>
       <SafeAreaViewContainer>
-        <Headline style={{color: 'white'}}>My Learning</Headline>
-        <Subheading style={{color: 'white'}}>
+        <Headline style={styles.headLine}>My Learning</Headline>
+        <Subheading style={styles.subHeadLine}>
           To play your course, select the Start button. To assign a course you
           have purchased to another user visit My Orders page
         </Subheading >
@@ -51,5 +46,16 @@ const MyLearningList = ({ navigation }) => {
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+  headLine:{
+    fontSize:20,
+    color: 'rgba(255, 255, 255, 0.87)',
+  },
+  subHeadLine:{
+    fontSize:14,
+    color: 'rgba(255, 255, 255, 0.6)',
+  }
+})
 
 export default MyLearningList;

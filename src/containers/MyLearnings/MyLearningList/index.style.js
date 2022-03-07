@@ -11,34 +11,27 @@ import styled from "styled-components/native";
 export const SafeAreaViewContainer = styled(View)`
   flex: 1;
   background-color: #121212;
+  padding: 10px;
 `;
 
 export const ListContainer = styled(FlatList).attrs({
   contentContainerStyle: {
-    padding: 10,
+    padding: 0,
   },
 })`
-  margin-bottom: 15%;
+  margin-bottom: 1%;
 `;
 
-// export const HeadingTitle = styled(Text)`
-//   font-family: NeoSansStd;
-//   font-size: 20px;
-//   font-weight: normal;
-//   font-stretch: normal;
-//   font-style: normal;
-//   line-height: 1.2;
-//   letter-spacing: 0.15px;
-//   color: rgba(255, 255, 255, 0.87);
-// `;
+export const HeadingTitle = styled(Text)`
+  font-size: 20px;
+  line-height: 1.2;
+  letter-spacing: 0.15px;
+  color: rgba(255, 255, 255, 0.87);
+`;
 
-// export const SubHeading = styled(Text)`
-//   font-family: NeoSansStd;
-//   font-size: 14px;
-//   font-weight: normal;
-//   font-stretch: normal;
-//   font-style: normal;
-//   line-height: 1.43;
-//   letter-spacing: 0.25px;
-//   color: rgba(255, 255, 255, 0.6);
-// `;
+export const SubHeading = styled(Text)`
+  font-size: 14px;
+  line-height: 1.43;
+  letter-spacing: 0.25px;
+  color: rgba(255, 255, 255, 0.6);
+`;

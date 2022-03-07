@@ -1,5 +1,5 @@
 import React from "react";
-import { Image, Text, View, StyleSheet, Dimensions } from "react-native";
+import { Image, Text, View, StyleSheet, Dimensions, ScrollView } from "react-native";
 import { Button } from "react-native-paper";
 
 import moment from 'moment'
@@ -8,8 +8,9 @@ import AssignModal from "../../../components/Modal/assignModal";
 
 const MyLearningView = ({ route, navigation }) => {
     const { product } = route.params;
+    
     return (
-        <View style={styles.courseInfo}>
+        <ScrollView style={styles.courseInfo}>
             <Text style={styles.ProductTitle}>{product.Course_name}</Text>
             <Image style={styles.imageBox} resizeMode='cover' source={require("../../../../public/assets/images/course_name.jpg")}></Image>
             <Text style={styles.courseDescription}>{product?.defaultLanguage?.description}</Text>
@@ -39,14 +40,14 @@ const MyLearningView = ({ route, navigation }) => {
                         mode='outlined'
                         style={styles.courseActionElement}
                         uppercase={false}
-                        onPress={() => <AssignModal visibleProp={true}/>}
+                        onPress={() => console.log("Assign Course")}
                     > Assign</Button>
                 </View>
             </View>
-        </View>
+        </ScrollView>
     )
 }
-
+// <AssignModal visibleProp={true}/>
 const styles = StyleSheet.create({
     cardSpace: {
         padding: 10,
@@ -109,7 +110,7 @@ const styles = StyleSheet.create({
         marginTop: 10
     },
     courseAction: {
-        alignSelf: 'center',
+        alignItems: 'center',
         flex:1,
         padding:20
     },

@@ -30,7 +30,8 @@ const Navigation = () => {
   return (
     <SafeAreaViewContainer>
       <NavigationContainer ref={navigationRef}>
-        {isAuth ? <TabNavigator />:<AuthNavigator/>}
+        {/* {isAuth ? <TabNavigator />:<AuthNavigator/>} */}
+        <TabNavigator />
         {/* <Stack.Navigator>
           <Stack.Screen name="LogIn" component={Login} />
           <Stack.Screen name="MyLearning" component={MyLearningNavigator} />

@@ -9,6 +9,7 @@ import {
 import {StyleSheet} from 'react-native'
 
 const AssignModal = ({visibleProp}) => {
+  console.log("visibleProp", visibleProp)
   const [visible, setVisible] = React.useState(visibleProp);
 
   // const showModal = () => setVisible(true);
