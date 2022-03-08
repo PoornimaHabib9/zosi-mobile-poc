@@ -51,19 +51,8 @@ const Login = ({ navigation }) => {
 
 	const { signin } = React.useContext(AuthContext);
 
-	useEffect(()=> {
-		
-	}, [])
-
 	const onSubmit = async (data) => {
-		// console.log(data);
-		// await auth0.webAuth
-		// 	.authorize({ scope: 'openid email profile' })
-		// 	.then((credentials) => console.log(credentials))
-		// 	.catch((error) => console.log(error));
 		signin(data)
-		// await AsyncStorage.setItem("auth", "something");
-		// navigation.navigate('Root', { screen: 'MyLearning' });
 	};
 
 	const RenderTextField = ({ fieldName, label, validation, icon, type }) => (
@@ -74,7 +63,7 @@ const Login = ({ navigation }) => {
 				rules={{
 					required: {
 						value: true,
-						message: 'Field is required!',
+						message: validation,
 					},
 				}}
 				render={({ field: { name, onChange, onBlur, value } }) => (
@@ -120,23 +109,6 @@ const Login = ({ navigation }) => {
 								validation={getTextFieldValidation.password}
 								type='password'
 							/>
-							{/* <TextInput
-							style={{backgroundColor: 'white'}}
-								label='Email Address'
-								name="email"
-								left={<TextInput.Icon name='email'
-								// mode='f'
-								/>}
-							/>
-							<TextInput
-							style={{backgroundColor: 'white'}}
-								name="password"
-								label='Password'
-								secureTextEntry
-								right={<TextInput.Icon name='eye'
-								// mode='outlined'
-								/>}
-							/> */}
 							<HyperLink style={{ marginTop: 10, marginBottom: 15 }}>
 								Forgot your Password?
 							</HyperLink>
