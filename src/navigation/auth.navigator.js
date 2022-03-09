@@ -6,15 +6,9 @@ import MyLearningNavigator from "./mylearning.navigator";
 const Stack = createStackNavigator();
 
 const AuthNavigator=()=>{
-    console.log('Executing AuthNavigator')
     return(
         <Stack.Navigator>
         <Stack.Screen name="LogIn" component={Login} options={{headerShown:false}}/>
-        {/* <Stack.Screen
-            name="Root"
-            component={MyLearningNavigator}
-            options={{ headerShown: true }}
-            /> */}
       </Stack.Navigator>
     )
 }

@@ -55,7 +55,6 @@ const createScreenOptions = ({ route }) => {
 };
 
 const TabNavigator = () => {
-  console.log('Executing tab Navigator')
   return (
     <Tab.Navigator
       screenOptions={createScreenOptions}

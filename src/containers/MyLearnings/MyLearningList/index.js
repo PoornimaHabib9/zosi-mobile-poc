@@ -41,7 +41,7 @@ const MyLearningList = ({ navigation }) => {
             keyExtractor={(item) => item.CourseSeat_id + ""}
           />
         )}
-        {error && <Text variant="error">{error}</Text>}
+        {courses && courses.length === 0 && <Text variant="error">{error}</Text>}
       </SafeAreaViewContainer>
     </View>
   );

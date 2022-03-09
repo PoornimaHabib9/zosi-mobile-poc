@@ -9,11 +9,8 @@ const authReducer =  (state, action) => {
     case "add_error":
       return { ...state, errorMessage: action.payload };
     case "signin":
-      console.log(`Storing ${state}`)
-
       return { ...state, errorMessage: "", token: action.payload };
     case "signout":
-      console.log(`Removing ${state}`)
       return { ...state, token: null };  
     default:
       return state;
@@ -37,7 +34,6 @@ const authReducer =  (state, action) => {
 
 const signin = (dispatch) => {
   return async ({ email, password }) => {
-    console.log('In context', { email, password });
     // Try to signin
     await AsyncStorage.setItem("token", `token:${email}`);
     // Handle success by updating state
@@ -56,7 +52,6 @@ const signout = (dispatch) => {
     // somehow sign out!!!
     await AsyncStorage.removeItem("token");
 
-    console.log('Sing out');
     dispatch({ type: "signout" });
   };
 };

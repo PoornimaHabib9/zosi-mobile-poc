@@ -6,15 +6,59 @@ import {
   TextInput,
   Dialog,
 } from "react-native-paper";
-import { StyleSheet } from "react-native";
-import { Picker } from "@react-native-picker/picker";
+import { StyleSheet, View, Text } from "react-native";
+import { useForm, Controller } from 'react-hook-form';
+
+const getTextFieldValidation = {
+  email: { required: `Email is required` },
+};
+
+const initialFormValues = {
+  email: "",
+};
 
 const AssignModal = ({ onCloseClick, visibleProp }) => {
-  // const [visible, setVisible] = React.useState(visibleProp);
+  const {
+    control,
+    handleSubmit,
+    formState: { errors, isValid },
+  } = useForm({
+    mode: "onBlur",
+    reValidateMode: "onBlur",
+    defaultValues: initialFormValues,
+  });
 
-  // const hideModal = () => setVisible(false);
-  const [text, setText] = useState("");
-  const [selectedLanguage, setSelectedLanguage] = useState();
+  const onSubmit = async (data) => {
+		onCloseClick();
+	};
+
+  const RenderTextField = ({ fieldName, label, validation }) => (
+    <View>
+      <Controller
+        name={fieldName}
+        control={control}
+        rules={{
+          required: {
+            value: true,
+            message: validation,
+          },
+        }}
+        render={({ field: { name, onChange, onBlur, value } }) => (
+          <TextInput
+            value={value}
+            name={name}
+            id={`${name}-input`}
+            onBlur={onBlur}
+            onChangeText={onChange}
+            label={label}
+            mode="outlined"
+            error={errors[name]}
+          />
+        )}
+      />
+      {errors[fieldName] && <Text>{errors[fieldName]?.message}</Text>}
+    </View>
+  );
 
   const containerStyle = { backgroundColor: "#383838", padding: 20 };
   return (
@@ -30,36 +74,11 @@ const AssignModal = ({ onCloseClick, visibleProp }) => {
             Assign Enrollment
           </Dialog.Title>
           <Dialog.Content>
-            <Picker
-              style={styles.dropdownInput}
-              mode="dropdown"
-              selectedValue={selectedLanguage}
-              dropdownIconColor={'#fff'}
-              onValueChange={(itemValue, itemIndex) =>
-                setSelectedLanguage(itemValue)
-              }
-            >
-              <Picker.Item
-                // color="rgba(255, 255, 255, 0.87)"
-                label="Johndoe01@ABC.com"
-                value="Johndoe01@ABC.com"
-              />
-              <Picker.Item
-                // color="rgba(255, 255, 255, 0.87)"
-                label="Johndoe@ABC.com"
-                value="Johndoe@ABC.com"
-              />
-              <Picker.Item
-                // color="rgba(255, 255, 255, 0.87)"
-                label="Johndoe02@ABC.com"
-                value="Johndoe02@ABC.com"
-              />
-              <Picker.Item
-                // color="rgba(255, 255, 255, 0.87)"
-                label="Johndoe03@ABC.com"
-                value="Johndoe03@ABC.com"
-              />
-            </Picker>
+            <RenderTextField
+              fieldName={"email"}
+              label={"Email Address"}
+              validation={getTextFieldValidation.email}
+            />
           </Dialog.Content>
           <Dialog.Actions>
             <Dialog.Actions>
@@ -77,7 +96,8 @@ const AssignModal = ({ onCloseClick, visibleProp }) => {
                 compact={true}
                 color="#fff"
                 style={[styles.modalButton, styles.startButton]}
-                onPress={() => console.log("Ok")}
+                disabled={!isValid}
+								onPress={handleSubmit(onSubmit)}
               >
                 Assign
               </Button>
@@ -108,7 +128,7 @@ const styles = StyleSheet.create({
   },
   dropdownInput: {
     borderWidth: 1,
-    backgroundColor:'#121212',
+    backgroundColor: "#121212",
     padding: 20,
   },
 });

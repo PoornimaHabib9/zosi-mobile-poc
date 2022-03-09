@@ -17,8 +17,6 @@ const Navigation = () => {
   const Stack = createNativeStackNavigator();
   const { state } = useContext(AuthContext);
   const isAuth = state?.token;
-  console.log('isAuth', isAuth);
-  console.log('state', JSON.stringify(state.token));
   return (
     <SafeAreaViewContainer>
       <NavigationContainer ref={navigationRef}>

@@ -122,7 +122,7 @@ const Login = ({ navigation }) => {
 						</View>
 					</LoginBox>
 					<SignupSuggestBox>
-						<Text> do not have an account?</Text>
+						<Text> Do not have an account?</Text>
 						<HyperLink style={{ marginLeft: 5 }}>Sign Up</HyperLink>
 					</SignupSuggestBox>
 				</LoginCard>
