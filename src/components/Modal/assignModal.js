@@ -7,10 +7,18 @@ import {
   Dialog,
 } from "react-native-paper";
 import { StyleSheet, View, Text } from "react-native";
-import { useForm, Controller } from 'react-hook-form';
+import { useForm, Controller } from "react-hook-form";
+const EMAIL_VALIDATION_REGX =
+  /^[a-zA-Z0-9\-+_]+(\.[a-zA-Z0-9\-+_]+)*@[a-z0-9]+(-[a-z0-9]+)*(\.[a-z0-9]+(-[a-z0-9]+)*)*\.[a-z]{2,4}$/;
 
 const getTextFieldValidation = {
-  email: { required: `Email is required` },
+  email: {
+    required: `Email is required`,
+    pattern: {
+      value: EMAIL_VALIDATION_REGX,
+      message: `Not a valid Email address`,
+    },
+  },
 };
 
 const initialFormValues = {
@@ -29,8 +37,8 @@ const AssignModal = ({ onCloseClick, visibleProp }) => {
   });
 
   const onSubmit = async (data) => {
-		onCloseClick();
-	};
+    onCloseClick();
+  };
 
   const RenderTextField = ({ fieldName, label, validation }) => (
     <View>
@@ -56,7 +64,7 @@ const AssignModal = ({ onCloseClick, visibleProp }) => {
           />
         )}
       />
-      {errors[fieldName] && <Text>{errors[fieldName]?.message}</Text>}
+      {errors[fieldName] && <Text style={{color:'red'}}>{errors[fieldName]?.message}</Text>}
     </View>
   );
 
@@ -77,7 +85,7 @@ const AssignModal = ({ onCloseClick, visibleProp }) => {
             <RenderTextField
               fieldName={"email"}
               label={"Email Address"}
-              validation={getTextFieldValidation.email}
+              validation={getTextFieldValidation.email.required}
             />
           </Dialog.Content>
           <Dialog.Actions>
@@ -97,7 +105,7 @@ const AssignModal = ({ onCloseClick, visibleProp }) => {
                 color="#fff"
                 style={[styles.modalButton, styles.startButton]}
                 disabled={!isValid}
-								onPress={handleSubmit(onSubmit)}
+                onPress={handleSubmit(onSubmit)}
               >
                 Assign
               </Button>

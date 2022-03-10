@@ -99,14 +99,14 @@ const Login = ({ navigation }) => {
 								fieldName={'email'}
 								label={'Email Address'}
 								icon={'email'}
-								validation={getTextFieldValidation.email}
+								validation={getTextFieldValidation.email.required}
 								type='email'
 							/>
 							<RenderTextField
 								fieldName={'password'}
 								label={'Password'}
 								icon={'lock-outline'}
-								validation={getTextFieldValidation.password}
+								validation={getTextFieldValidation.password.required}
 								type='password'
 							/>
 							<HyperLink style={{ marginTop: 10, marginBottom: 15 }}>
