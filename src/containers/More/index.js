@@ -1,9 +1,10 @@
 import React from "react";
-import { Text } from "react-native";
+import {  Headline } from 'react-native-paper';
 
 const More = ()=>{
     return(
-        <Text>More</Text>
+        <Headline>More</Headline>
+
     )
 }
 export default More;

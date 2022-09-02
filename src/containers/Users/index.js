@@ -1,9 +1,9 @@
 import React from "react";
-import { Text } from "react-native";
+import { Headline } from "react-native-paper";
 
 const Users = ()=>{
     return(
-        <Text>Users</Text>
+        <Headline>Users</Headline>
     )
 }
 export default Users;
