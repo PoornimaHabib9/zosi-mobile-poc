@@ -88,6 +88,7 @@ const styles = StyleSheet.create({
     fontSize: 24,
     color: "rgba(255, 255, 255, 0.87)",
     flexShrink: 1,
+    marginBottom: 10,
   },
   imageBox: {
     width: "100%",

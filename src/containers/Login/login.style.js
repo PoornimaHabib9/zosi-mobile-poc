@@ -16,6 +16,7 @@ export const LoginCard = styled(Card)`
   margin-bottom: auto;
   margin-left: 30px;
   margin-right: 30px;
+  padding-top: 50px;
 `;
 export const SafeAreaViewContainer = styled(SafeAreaView)`
   flex: auto;
